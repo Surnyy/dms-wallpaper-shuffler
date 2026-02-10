@@ -38,53 +38,9 @@ DankPopout {
     visible: shouldBeVisible
 
     content: Component {
-        Rectangle {
+        Item {
             id: content
-
             implicitHeight: contentColumn.height + Theme.spacingL * 2
-            color: Theme.popupBackground()
-            radius: Theme.cornerRadius
-            border.color: Theme.outlineMedium
-            border.width: 0
-            antialiasing: true
-            smooth: true
-            focus: true
-            Keys.onPressed: function(event) {
-                if (event.key === Qt.Key_Escape) {
-                    root.close();
-                    event.accepted = true;
-                }
-            }
-
-            // Outer subtle shadow rings
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: -3
-                color: "transparent"
-                radius: parent.radius + 3
-                border.color: Qt.rgba(0, 0, 0, 0.05)
-                border.width: 0
-                z: -3
-            }
-
-            Rectangle {
-                anchors.fill: parent
-                anchors.margins: -2
-                color: "transparent"
-                radius: parent.radius + 2
-                border.color: Theme.shadowMedium
-                border.width: 0
-                z: -2
-            }
-
-            Rectangle {
-                anchors.fill: parent
-                color: "transparent"
-                border.color: Theme.outlineStrong
-                border.width: 0
-                radius: parent.radius
-                z: -1
-            }
 
             Column {
                 id: contentColumn
@@ -121,7 +77,7 @@ DankPopout {
                             anchors.centerIn: parent
                             name: "close"
                             size: Theme.iconSize - 4
-                            color: closeArea.containsMouse ? Theme.error : Theme.surfaceText
+                            color: closeArea.containsMouse ? Theme.error : Theme.onSurface
                         }
 
                         MouseArea {
@@ -140,7 +96,7 @@ DankPopout {
                     width: parent.width
                     height: pathColumn.height + Theme.spacingM * 2
                     radius: Theme.cornerRadius
-                    color: Qt.rgba(Theme.surfaceContainerHigh.r, Theme.surfaceContainerHigh.g, Theme.surfaceContainerHigh.b, Theme.getContentBackgroundAlpha() * 0.6)
+                    color: Theme.withAlpha(Theme.surfaceContainerHigh, 0.4)
                     border.width: 0
 
                     Column {
@@ -187,7 +143,7 @@ DankPopout {
                     width: parent.width
                     height: currentColumn.height + Theme.spacingM * 2
                     radius: Theme.cornerRadius
-                    color: Qt.rgba(Theme.surfaceContainerHigh.r, Theme.surfaceContainerHigh.g, Theme.surfaceContainerHigh.b, Theme.getContentBackgroundAlpha() * 0.6)
+                    color: Theme.withAlpha(Theme.surfaceContainerHigh, 0.4)
                     border.width: 0
 
                     Column {
@@ -224,7 +180,7 @@ DankPopout {
                             width: parent.width
                             height: 200
                             radius: Theme.cornerRadius
-                            color: Theme.surfaceLight
+                            color: Theme.surfaceContainer
                             border.color: Theme.outlineLight
                             border.width: 1
                             clip: true
@@ -284,7 +240,7 @@ DankPopout {
                     width: parent.width
                     height: nextColumn.height + Theme.spacingM * 2
                     radius: Theme.cornerRadius
-                    color: Qt.rgba(Theme.surfaceContainerHigh.r, Theme.surfaceContainerHigh.g, Theme.surfaceContainerHigh.b, Theme.getContentBackgroundAlpha() * 0.6)
+                    color: Theme.withAlpha(Theme.surfaceContainerHigh, 0.4)
                     border.width: 0
 
                     Column {
@@ -321,7 +277,7 @@ DankPopout {
                             width: parent.width
                             height: 150
                             radius: Theme.cornerRadius
-                            color: Theme.surfaceLight
+                            color: Theme.surfaceContainer
                             border.color: Theme.outlineLight
                             border.width: 1
                             clip: true

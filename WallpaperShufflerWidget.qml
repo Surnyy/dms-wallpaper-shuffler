@@ -197,12 +197,9 @@ PluginComponent {
                         CachingImage {
                             id: currentImage
                             anchors.fill: parent
-                            source: root.currentWallpaper ? "file://" + root.currentWallpaper : ""
-                            sourceSize.width: 800
-                            sourceSize.height: 450
+                            imagePath: root.currentWallpaper ? "file://" + root.currentWallpaper : ""
+                            maxCacheSize: 800
                             fillMode: Image.PreserveAspectFit
-                            asynchronous: true
-                            cache: true
                             visible: root.currentWallpaper !== ""
 
                             Rectangle {
@@ -295,12 +292,9 @@ PluginComponent {
                         CachingImage {
                             id: nextImage
                             anchors.fill: parent
-                            source: root.nextWallpaper ? "file://" + root.nextWallpaper : ""
-                            sourceSize.width: 800
-                            sourceSize.height: 450
+                            imagePath: root.nextWallpaper ? "file://" + root.nextWallpaper : ""
+                            maxCacheSize: 800
                             fillMode: Image.PreserveAspectFit
-                            asynchronous: true
-                            cache: true
                             visible: root.nextWallpaper !== ""
 
                             Rectangle {
